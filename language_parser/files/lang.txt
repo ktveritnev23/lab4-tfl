@@ -1,0 +1,18 @@
+S -> S_1
+S -> S_2
+S -> S_3
+S_1 -> b a R a a a
+R -> a b b R
+R -> a b b
+S_2 -> a b S_2 b b S_2
+S_2 -> b a a T a a a
+S_2 -> ε
+T -> b b a T'
+T' -> b b
+T' -> T' a T'
+S_3 -> a b S_3 b b S_3
+S_3 -> b a a U a a a
+U -> b b a b b a b b a V
+U -> b b
+V -> b b
+V -> V a V
