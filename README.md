@@ -3,14 +3,12 @@
 # 0. Исходная атрибутная грамматика.
 
 $$
-
-S \to abSbbS, S_1.z == S_2.z, S_0.z := S_1.z \newline
-S \to baaTaaa, S.z := T.z \newline
-T \to TaT, T_0.z := [\frac{T_1.z}{\max(1, T_2.z)}]+1 \newline
-T \to TaT, T_0.z := \vert [\frac{T_1.z}{\max(1, T_2.z)}]-1 \vert \newline
-T \to bb, T.z := 3 \newline
-S \to \varepsilon, S.z := 0 \newline
-
+S \to abSbbS, S_1.z == S_2.z, S_0.z := S_1.z \\
+S \to baaTaaa, S.z := T.z \\
+T \to TaT, T_0.z := [\frac{T_1.z}{\max(1, T_2.z)}]+1 \\
+T \to TaT, T_0.z := \vert [\frac{T_1.z}{\max(1, T_2.z)}]-1 \vert \\
+T \to bb, T.z := 3 \\
+S \to \varepsilon, S.z := 0 \\
 $$
 
 # 1. Проверка языка на КС-свойство.
