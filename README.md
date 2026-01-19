@@ -4,10 +4,20 @@
 
 $$
 S \to abSbbS, S_1.z == S_2.z, S_0.z := S_1.z \\
+$$
+$$
 S \to baaTaaa, S.z := T.z \\
+$$
+$$
 T \to TaT, T_0.z := [\frac{T_1.z}{\max(1, T_2.z)}]+1 \\
+$$
+$$
 T \to TaT, T_0.z := \vert [\frac{T_1.z}{\max(1, T_2.z)}]-1 \vert \\
+$$
+$$
 T \to bb, T.z := 3 \\
+$$
+$$
 S \to \varepsilon, S.z := 0 \\
 $$
 
@@ -38,28 +48,25 @@ $bb(abb)^5 = T^5$: $T^5.z \in \lbrace 0,1,2,3,4,5 \rbrace$.
 С другой стороны, существует разбор $T^{n+2} \to T^0aT^{n+1}$, и тогда в множестве значений $z$ для $T^{n+2}$ есть 0 ($\min(T^{n+2}.z) := [3/2] - 1$). По индукции для $bb(abb)^n$, где $n \ge 3$, $z \in \lbrace 0,1,2, ..., [\frac{n}{2}]+3\rbrace$. 
 
 Максимальное значение не столь важно, а важен скорее тот факт, что все регулярные $S$, кроме ограниченного числа краевых случаев, могут иметь нулевое значение атрибута. Для данного подмножества языка можно предложить КС-грамматику: 
+
 $$
-
-S \to abSbbS \\\\\\\\
-S \to baaTaaa \\\\\\\\
-T \to bbaT' \\\\\\\\
-T' \to bb \\\\\\\\
-T' \to T'aT' \\\\\\\\
-S \to \varepsilon \\\\\\\\
-
+S \to abSbbS \\
+S \to baaTaaa \\
+T \to bbaT' \\
+T' \to bb \\
+T' \to T'aT' \\
+S \to \varepsilon 
 $$
 
 Краевым случаем остаётся только $T \to bb$. Его значение атрибута (3) начинает присутствовать в серии $bb(abb)^n$, начиная с $n=3$. Тогда должны потребовать, чтобы нетривиальный $T$ был не меньше $bb(abb)^3$:
 
 $$
-
-S \to abSbbS \\\\\\\\
-S \to baaTaaa \\\\\\\\
-T \to bb(abb)^2aT' \\\\\\\\
-T \to bb \\\\\\\\
-T' \to bb \\\\\\\\
-T' \to T'aT' \\\\\\\\
-
+S \to abSbbS \\
+S \to baaTaaa \\
+T \to bb(abb)^2aT' \\
+T \to bb \\
+T' \to bb \\
+T' \to T'aT' 
 $$
 
 Объединение контекстно-свободных языков является КС.
@@ -71,29 +78,21 @@ $$
 Атрибутная грамматика описывает контекстно-свободный язык, который можно задать следующим образом:
 
 $$
-
-S \to S_1 \vert S_2 \vert S_3 \\\\\\\\
-
+S \to S_1 \vert S_2 \vert S_3
 $$
 $$
-
-S_1 \to ba R aaa \\\\\\\\
-R \to abb R \vert abb \\\\\\\\
-
+S_1 \to ba R aaa \\
+R \to abb R \vert abb 
 $$
 $$
-
-S_2 \to ab S_2 bb S_2 \vert baa T aaa \vert \varepsilon \\\\\\\\
-T \to bba T' \\\\\\\\
-T' \to bb \vert T' a T' \\\\\\\\
-
+S_2 \to ab S_2 bb S_2 \vert baa T aaa \vert \varepsilon \\
+T \to bba T' \\
+T' \to bb \vert T' a T' 
 $$
 $$
-
-S_3 \to ab S_3 bb S_3 \vert baa U aaa \\\\\\\\
-U \to bb (abb)^2aV \vert bb \\\\\\\\
-V \to bb \vert VaV \\\\\\\\
-
+S_3 \to ab S_3 bb S_3 \vert baa U aaa \\
+U \to bb (abb)^2aV \vert bb \\
+V \to bb \vert VaV 
 $$
 
 "Наивный" парсер проверяет слово на соответствие трём языкам по отдельности, и возвращает $(w \in L_1) \lor (w \in L_2) \lor (w \in L_3)$
